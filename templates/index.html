@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+    {% include 'music/common_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+    {% include 'music/common_content.html' %}
+    <p>Number of performers: {{ num_performers }}</p>
+{% endblock %}
