@@ -8,6 +8,6 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path('performers/<int:pk>', views.performer_detail, name='performer-detail')
+    path('performers/<int:pk>/', views.performer_detail, name='performer-detail')
 ]
 

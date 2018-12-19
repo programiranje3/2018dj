@@ -21,5 +21,5 @@ class Performer(models.Model):
         return self.name + (' (band)' if self.performer_choices else ' (musician)')
 
     def get_absolute_url(self):
-        return reverse('peformer-detail', args=[str(self.id)])
+        return reverse('performer-detail', args=[str(self.id)])
 
