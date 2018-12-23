@@ -18,7 +18,7 @@ class Performer(models.Model):
                            default=False)
 
     def __str__(self):
-        return self.name + (' (band)' if self.performer_choices else ' (musician)')
+        return self.name + (' (band)' if self.is_band else ' (musician)')
 
     def get_absolute_url(self):
         return reverse('performer-detail', args=[str(self.id)])
