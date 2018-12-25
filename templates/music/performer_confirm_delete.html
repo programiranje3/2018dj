@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+    {% include 'music/common_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+    {% include 'music/common_content.html' %}
+
+    <p>Delete this performer?</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+{% endblock %}
