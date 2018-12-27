@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+    {% include 'music/common_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+    {% include 'music/common_content.html' %}
+    <h4>{{ performer }}</h4>
+    <p>Songs:</p>
+    {% if performer.song_set.all %}
+        <ul>
+            {% for song in performer.song_set.all %}
+                <li><a href="{% url 'song-detail' song.id %}">{{ song.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No songs registered.</p>
+    {% endif %}
+{% endblock %}
