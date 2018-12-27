@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+    {% include 'music/common_sidebar.html' %}
+    <p>
+        <a href="{% url 'song-update' song.id %}">Update song</a> <br>
+        <a href="{% url 'song-delete' song.id %}">Delete song</a>
+    </p>
+{% endblock %}
+
+{% block content %}
+    {% include 'music/common_content.html' %}
+    <p>Song: {{ song.title }} <br>
+        <strong>Performer:</strong> {{ song.performer.name }} <br>
+        <strong>Time: {{ song.format_time }}</strong> <br>
+        <strong>Release date: {{ song.format_date }}</strong>
+    </p>
+{% endblock %}

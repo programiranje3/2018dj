@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+    {% include 'music/common_sidebar.html' %}
+    <p><a href="{% url 'song-create' %}">Add song</a></p>
+{% endblock %}
+
+{% block content %}
+    {% include 'music/common_content.html' %}
+    <p>Songs registered on this site:</p>
+    <ul>
+        {% for song in song_list %}
+            <li><a href="{% url 'song-detail' song.id %}">{{ song.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -52,7 +52,7 @@ class PerformerUpdate(UpdateView):
     fields = ['name', 'is_band']
 
 
-class PerformerDelete(DetailView):
+class PerformerDelete(DeleteView):
     model = Performer
     success_url = reverse_lazy('performer-list')
 
@@ -80,7 +80,8 @@ class SongUpdate(UpdateView):
     fields = ['title', 'performer', 'time', 'release_date']
 
 
-class SongDelete(DetailView):
+class SongDelete(DeleteView):
     model = Song
     success_url = reverse_lazy('song-list')
+
 

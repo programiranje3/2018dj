@@ -1,5 +1,4 @@
 import datetime
-from time import strftime
 
 from django.db import models
 
@@ -38,7 +37,7 @@ class Song(models.Model):
         return self.title + '\n' + \
                '\tperformer: ' + str(self.performer) + '\n' + \
                '\ttime: ' + self.format_time() + '\n' + \
-               '\treleased: ' + self.format_date()
+               '\trelease_date: ' + self.format_date()
 
     def format_time(self):
         return self.time.strftime('%#M:%S') if isinstance(self.time, datetime.time) else 'unknown'
@@ -48,4 +47,5 @@ class Song(models.Model):
 
     def get_absolute_url(self):
         return reverse('song-detail', args=[str(self.id)])
+
 

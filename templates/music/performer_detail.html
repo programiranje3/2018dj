@@ -2,19 +2,23 @@
 
 {% block sidebar %}
     {% include 'music/common_sidebar.html' %}
+    <p>
+        <a href="{% url 'performer-update' performer.id %}">Update performer</a> <br>
+        <a href="{% url 'performer-delete' performer.id %}">Delete performer</a>
+    </p>
 {% endblock %}
 
 {% block content %}
     {% include 'music/common_content.html' %}
-    <h4>{{ performer }}</h4>
-    <p>Songs:</p>
+    <h4>{{ performer.name }}</h4>
     {% if performer.song_set.all %}
+        <p>Songs:</p>
         <ul>
             {% for song in performer.song_set.all %}
-                <li><a href="{% url 'song-detail' song.id %}">{{ song.title }}</a></li>
+                <li><a href="{% url 'song-detail' song.pk %}">{{ song.title }}</a></li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>No songs registered.</p>
+        <p>No songs registered for this performer.</p>
     {% endif %}
 {% endblock %}

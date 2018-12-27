@@ -2,20 +2,17 @@
 
 {% block sidebar %}
     {% include 'music/common_sidebar.html' %}
-{#    <p><a href="{% url 'performer-create' %}">Add performer</a></p>#}
+    <p>
+        <a href="{% url 'performer-create' %}">Add performer</a>
+    </p>
 {% endblock %}
 
 {% block content %}
     {% include 'music/common_content.html' %}
-
-    {% if performer_list %}
-        <p>Performers registered on this site: </p>
-        <ul>
-            {% for performer in performer_list %}
-                <li><a href="{% url 'performer-detail' performer.id %}">{{ performer.name }}</a></li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No performers registered on this site.</p>
-    {% endif %}
+    <p>Performers registered on this site:</p>
+    <ul>
+        {% for performer in performer_list %}
+            <li><a href="{% url 'performer-detail' performer.id %}">{{ performer.name }}</a></li>
+        {% endfor %}
+    </ul>
 {% endblock %}
